@@ -1,0 +1,27 @@
+import {authAPI} from "../../api/api";
+
+const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
+
+let initialState = {
+    following_users_id: []
+};
+
+const authReducer = (state = initialState, action) => {
+
+    switch (action.type) {
+        case SET_AUTH_USER_DATA:
+            return  {...state, following_users_id: [...action.userData[0]['following_users_id']]}
+
+        default:
+            return state;
+    }
+}
+
+export const setAuthUserData = (userData) => ({ type: SET_AUTH_USER_DATA, userData })
+
+export const requestAuthUserData = () => async (dispatch) => {
+    const responseData = await authAPI.getAuthUserData();
+    dispatch(setAuthUserData(responseData))
+}
+
+export default authReducer;

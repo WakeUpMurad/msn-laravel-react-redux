@@ -1,0 +1,20 @@
+.myBtn {
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    padding: .5rem 1rem;
+    color: #444;
+    text-shadow: 0 .2rem 0 rgba(255,255,255,.8);
+    border-radius: .5rem;
+    box-shadow: 0 .2rem .2rem rgba(0,0,0,.4);
+    cursor: pointer;
+}
+
+.myBtn:hover,
+.myBtn:hover::after,
+.myBtn:focus,
+.myBtn:focus::after {
+    background: #fff;
+}
+
+.myBtn:focus {
+    outline: 0;
+}
