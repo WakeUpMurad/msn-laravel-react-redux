@@ -1,4 +1,5 @@
 import axios from "axios";
+import {toast} from "react-toastify";
 
 const instance = axios.create({
     withCredentials: true,
@@ -18,5 +19,17 @@ export const authAPI = {
         return instance.get('/get/user/data').then(response => {
             return response.data;
         })
-    }
+    },
+    followUnfollow(newFollowingUsersId) {
+        return instance.post('/update/user/data',{
+            following_users_id: newFollowingUsersId
+        }).then(response => {
+            toast.success('Users Update Successfully');
+            setTimeout(() => {
+            }, 700)
+            return response.data;
+        })
+    },
 }
+
+

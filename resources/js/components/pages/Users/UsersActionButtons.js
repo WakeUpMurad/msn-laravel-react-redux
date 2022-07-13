@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-const UsersActionButtons = ({userId, followingUsersId, setFollowUser, setUnfollowUser}) => {
+const UsersActionButtons = ({userId, followingUsersId, followUser, unfollowUser}) => {
     return (
         <div className='btn-group' role='group'>
             <button type="button" className="btn btn-light">
@@ -11,9 +11,9 @@ const UsersActionButtons = ({userId, followingUsersId, setFollowUser, setUnfollo
             </button>
             {followingUsersId && followingUsersId.some(id => id === userId)
                 ? <button type="button" className="btn btn-danger"
-                            onClick={() => {setUnfollowUser(userId)}}>Unfollow</button>
+                            onClick={() => {unfollowUser(userId)}}>Unfollow</button>
                 : <button type="button" className="btn btn-info"
-                            onClick={() => {setFollowUser(userId)}}>Follow</button>
+                            onClick={() => {followUser(userId)}}>Follow</button>
             }
         </div>
     );
