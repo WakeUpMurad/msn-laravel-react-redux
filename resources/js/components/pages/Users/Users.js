@@ -1,24 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ToastContainer} from "react-toastify";
 import UsersRow from "./UsersRow";
 import {getFollowingUsersId, getUsers} from "../../../redux/selectors";
 import {connect} from "react-redux";
 import {requestUsers} from "../../../redux/reducers/users-reducer";
-import {requestAuthUserData, followUser, unfollowUser} from "../../../redux/reducers/auth-reducer";
+import {requestAuthUserData, follow, unfollow} from "../../../redux/reducers/auth-reducer";
 
-const Users = ({users, followingUsersId, requestUsers, requestAuthUserData, followUser, unfollowUser}) => {
+const Users = ({users, followingUsersId, requestUsers, requestAuthUserData, follow, unfollow}) => {
+
+    const f = (userId) => {
+         let Arr = [...followingUsersId, userId]
+         follow(Arr)
+    }
+    const u = (userId) => {
+        let Arr = [...followingUsersId.filter((u) => u !== userId)]
+        unfollow(Arr)
+    }
 
     //Life cycle method
 
     useEffect(() => {
         requestUsers();
-
-    }, [])
-
-    useEffect(() => {
         requestAuthUserData();
-
-    }, [followingUsersId])
+    }, [])
 
     return (
         <div className="container">
@@ -40,7 +44,7 @@ const Users = ({users, followingUsersId, requestUsers, requestAuthUserData, foll
                                 users.map(item => {
                                     return <UsersRow key={item.id} id={item.id} name={item.name}
                                                      email={item.email} followingUsersId={followingUsersId}
-                                                     followUser={followUser} unfollowUser={unfollowUser}/>
+                                                     followUser={f} unfollowUser={u}/>
                                 })
                             }
                             </tbody>
@@ -59,5 +63,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {requestUsers, requestAuthUserData, followUser,  unfollowUser})(Users);
+export default connect(mapStateToProps, {requestUsers, requestAuthUserData, follow,  unfollow})(Users);
 

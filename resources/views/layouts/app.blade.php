@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset('images/logo_192x192.png')}}" alt="mdo" width="40" height="40" class="rounded-circle">
+                <img src="{{asset('images/logo_192x192.png')}}" alt="msn" width="40" height="40" class="rounded-circle">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -106,8 +106,47 @@
     </nav>
 
     <main class="py-4">
-        @yield('content')
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </main>
+    <footer class="d-flex  py-3 border-top bg-white shadow-sm">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img class="bi rounded-circle" width="30" height="30" src="{{asset('images/logo_192x192.png')}}" alt="msn" ></img>
+                </a>
+                <span class="text-muted">© 2022 Murad Gakhramanov Company, Inc</span>
+            </div>
+
+            <ul class="col-md-4 justify-content-end list-unstyled d-flex m-0">
+                <li class="ms-3">
+                    <a href="https://www.instagram.com/murad.savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img width="30" height="30" src="{{asset('images/linksIco/instagram.png')}}" alt="img"/>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a href="https://web.telegram.org/murad_savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img width="30" height="30" src="{{asset('images/linksIco/telegram.png')}}" alt="img"/>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a href="https://www.linkedin.com/in/murad-gakhramanov" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img width="30" height="30" src="{{asset('images/linksIco/linkedin.png')}}" alt="img"/>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a href="https://github.com/WakeUpMurad" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img width="30" height="30" src="{{asset('images/linksIco/github.png')}}" alt="img"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </div>
 </body>
 </html>

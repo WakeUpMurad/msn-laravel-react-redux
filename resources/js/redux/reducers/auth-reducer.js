@@ -40,14 +40,21 @@ export const requestAuthUserData = () => async (dispatch) => {
     dispatch(setAuthUserData(responseData))
 }
 
-export const follow = (userId) => async (dispatch) => {
-    dispatch(followUser(userId))
-    await authAPI.followUnfollow(state.following_users_id)
+export const follow = (followUsersIds) => async (dispatch) => {
+    await authAPI.followUnfollow(followUsersIds).then( async() => {
+        const responseData = await authAPI.getAuthUserData();
+        dispatch(setAuthUserData(responseData))
+        }
+    )
+
 }
 
-export const unfollow = (userId) => async (dispatch) => {
-    dispatch(unfollowUser(userId))
-    await authAPI.followUnfollow(state.following_users_id)
+export const unfollow = (followUsersIds) => async (dispatch) => {
+    await authAPI.followUnfollow(followUsersIds).then( async() => {
+            const responseData = await authAPI.getAuthUserData();
+            dispatch(setAuthUserData(responseData))
+        }
+    )
 }
 
 export default authReducer;

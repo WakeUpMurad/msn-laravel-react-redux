@@ -1,17 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UsersController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Auth::routes();
+Route::get('/', function () {
+    return view('layouts/app');
+    });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -26,6 +25,7 @@ Route::get('/get/users/list', [UsersController::class, 'getUsersList'])->name('u
 Route::get('/get/user/data', [UsersController::class, 'getUserData'])->name('user.data');
 Route::post('/update/user/data', [UsersController::class, 'setFollowUser']);
 Route::post('/get/individual/user/details', [UsersController::class, 'getUserDetails'])->name('user.details');
+
 
 Route::view('/{path?}', 'home')
     ->where('path', '.*')

@@ -5679,22 +5679,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
 
-var instance = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  withCredentials: true,
-  baseURL: '/',
-  headers: {}
-});
+
 var usersAPI = {
   getUsers: function getUsers() {
-    return instance.get('/get/users/list').then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get/users/list').then(function (response) {
+      console.log('users');
       return response.data;
     });
   }
 };
 var authAPI = {
   getAuthUserData: function getAuthUserData() {
-    return instance.get('/get/user/data').then(function (response) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/get/user/data').then(function (response) {
+      return response.data;
+    });
+  },
+  followUnfollow: function followUnfollow(newFollowingUsersId) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/update/user/data', {
+      followingUserIds: newFollowingUsersId
+    }).then(function (response) {
+      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success('Users Update Successfully');
+      setTimeout(function () {}, 700);
       return response.data;
     });
   }
@@ -5776,13 +5783,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _employeeList_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./employeeList/Table */ "./resources/js/components/employeeList/Table.js");
 /* harmony import */ var _pages_Profile_Profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Profile/Profile */ "./resources/js/components/pages/Profile/Profile.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages_Dialogs_Dialogs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Dialogs/Dialogs */ "./resources/js/components/pages/Dialogs/Dialogs.jsx");
 /* harmony import */ var _pages_Users_Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Users/Users */ "./resources/js/components/pages/Users/Users.js");
 /* harmony import */ var _pages_News_News__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/News/News */ "./resources/js/components/pages/News/News.jsx");
 /* harmony import */ var _pages_Music_Music__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Music/Music */ "./resources/js/components/pages/Music/Music.jsx");
 /* harmony import */ var _pages_Settings_Settings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Settings/Settings */ "./resources/js/components/pages/Settings/Settings.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_Home_Home__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Home/Home */ "./resources/js/components/pages/Home/Home.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -5796,37 +5806,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-    className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-      className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "profile/*",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Profile_Profile__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "dialogs/*",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Dialogs_Dialogs__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "users/*",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Users_Users__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "home",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_employeeList_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "news",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_News_News__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "music",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Music_Music__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "settings",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Settings_Settings__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "*",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_employeeList_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-        })]
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "home",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Home_Home__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "profile/*",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Profile_Profile__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "dialogs/*",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Dialogs_Dialogs__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "users/*",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Users_Users__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "news",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_News_News__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "music",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Music_Music__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "settings",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Settings_Settings__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "*",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_employeeList_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+      })]
     })
   });
 }
@@ -5835,10 +5841,10 @@ function App() {
 
 /***/ }),
 
-/***/ "./resources/js/components/UI/Loader/Loader.jsx":
-/*!******************************************************!*\
-  !*** ./resources/js/components/UI/Loader/Loader.jsx ***!
-  \******************************************************/
+/***/ "./resources/js/components/UI/Loader/Loader.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/UI/Loader/Loader.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6650,6 +6656,31 @@ var Dialogs = function Dialogs() {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/Home/Home.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/pages/Home/Home.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var Home = function Home() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {});
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Music/Music.jsx":
 /*!*******************************************************!*\
   !*** ./resources/js/components/pages/Music/Music.jsx ***!
@@ -6721,7 +6752,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _UI_Loader_Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../UI/Loader/Loader */ "./resources/js/components/UI/Loader/Loader.jsx");
+/* harmony import */ var _UI_Loader_Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../UI/Loader/Loader */ "./resources/js/components/UI/Loader/Loader.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -6870,21 +6901,13 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -6900,59 +6923,28 @@ var Users = function Users(_ref) {
   var users = _ref.users,
       followingUsersId = _ref.followingUsersId,
       requestUsers = _ref.requestUsers,
-      requestAuthUserData = _ref.requestAuthUserData;
+      requestAuthUserData = _ref.requestAuthUserData,
+      follow = _ref.follow,
+      unfollow = _ref.unfollow;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      usersList = _useState2[0],
-      setUsersList = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      authUserFollows = _useState4[0],
-      setAuthUserFollows = _useState4[1]; //Get User Profile.
-
-  /*   const getUsersList = () => {
-         axios.get('/get/users/list').then((response) => {
-             setUsersList(response.data);
-         });
-     }
-     const getUserData = () => {
-         axios.get('/get/user/data').then((response) => {
-             console.log(response.data[0]['following_users_id'])
-             setAuthUserFollows(response.data[0]['following_users_id']);
-         });
-     }
-  */
-
-
-  var setFollowUser = function setFollowUser(id) {
-    var newAuthUserFollows = [].concat(_toConsumableArray(followingUsersId), [id]);
-    axios.post('/update/user/data', {
-      followingUserIds: newAuthUserFollows
-    }).then(function (response) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success('Users Update Successfully');
-      setTimeout(function () {}, 1000);
-    });
+  var f = function f(userId) {
+    var Arr = [].concat(_toConsumableArray(followingUsersId), [userId]);
+    follow(Arr);
   };
 
-  var setUnfollowUser = function setUnfollowUser(id) {
-    var newAuthUserFollows = followingUsersId.filter(function (item) {
-      return item !== id;
-    });
-    axios.post('/update/user/data', {
-      followingUserIds: newAuthUserFollows
-    }).then(function (response) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success('Users Update Successfully');
-      setTimeout(function () {}, 1000);
-    });
+  var u = function u(userId) {
+    var Arr = _toConsumableArray(followingUsersId.filter(function (u) {
+      return u !== userId;
+    }));
+
+    unfollow(Arr);
   }; //Life cycle method
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    requestAuthUserData();
     requestUsers();
-  }, [followingUsersId]);
+    requestAuthUserData();
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_1__.ToastContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -6990,8 +6982,8 @@ var Users = function Users(_ref) {
                   name: item.name,
                   email: item.email,
                   followingUsersId: followingUsersId,
-                  setFollowUser: setFollowUser,
-                  setUnfollowUser: setUnfollowUser
+                  followUser: f,
+                  unfollowUser: u
                 }, item.id);
               })
             })]
@@ -7011,7 +7003,9 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_4__.connect)(mapStateToProps, {
   requestUsers: _redux_reducers_users_reducer__WEBPACK_IMPORTED_MODULE_5__.requestUsers,
-  requestAuthUserData: _redux_reducers_auth_reducer__WEBPACK_IMPORTED_MODULE_6__.requestAuthUserData
+  requestAuthUserData: _redux_reducers_auth_reducer__WEBPACK_IMPORTED_MODULE_6__.requestAuthUserData,
+  follow: _redux_reducers_auth_reducer__WEBPACK_IMPORTED_MODULE_6__.follow,
+  unfollow: _redux_reducers_auth_reducer__WEBPACK_IMPORTED_MODULE_6__.unfollow
 })(Users));
 
 /***/ }),
@@ -7039,8 +7033,8 @@ __webpack_require__.r(__webpack_exports__);
 var UsersActionButtons = function UsersActionButtons(_ref) {
   var userId = _ref.userId,
       followingUsersId = _ref.followingUsersId,
-      setFollowUser = _ref.setFollowUser,
-      setUnfollowUser = _ref.setUnfollowUser;
+      followUser = _ref.followUser,
+      unfollowUser = _ref.unfollowUser;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "btn-group",
     role: "group",
@@ -7057,14 +7051,14 @@ var UsersActionButtons = function UsersActionButtons(_ref) {
       type: "button",
       className: "btn btn-danger",
       onClick: function onClick() {
-        setUnfollowUser(userId);
+        unfollowUser(userId);
       },
       children: "Unfollow"
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
       type: "button",
       className: "btn btn-info",
       onClick: function onClick() {
-        setFollowUser(userId);
+        followUser(userId);
       },
       children: "Follow"
     })]
@@ -7100,8 +7094,8 @@ var UsersRow = function UsersRow(_ref) {
       name = _ref.name,
       email = _ref.email,
       followingUsersId = _ref.followingUsersId,
-      setFollowUser = _ref.setFollowUser,
-      setUnfollowUser = _ref.setUnfollowUser;
+      followUser = _ref.followUser,
+      unfollowUser = _ref.unfollowUser;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
       scope: "row",
@@ -7114,8 +7108,8 @@ var UsersRow = function UsersRow(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_UsersActionButtons__WEBPACK_IMPORTED_MODULE_1__["default"], {
         userId: id,
         followingUsersId: followingUsersId,
-        setFollowUser: setFollowUser,
-        setUnfollowUser: setUnfollowUser
+        followUser: followUser,
+        unfollowUser: unfollowUser
       })
     })]
   });
@@ -7168,8 +7162,12 @@ root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "follow": () => (/* binding */ follow),
+/* harmony export */   "followUser": () => (/* binding */ followUser),
 /* harmony export */   "requestAuthUserData": () => (/* binding */ requestAuthUserData),
-/* harmony export */   "setAuthUserData": () => (/* binding */ setAuthUserData)
+/* harmony export */   "setAuthUserData": () => (/* binding */ setAuthUserData),
+/* harmony export */   "unfollow": () => (/* binding */ unfollow),
+/* harmony export */   "unfollowUser": () => (/* binding */ unfollowUser)
 /* harmony export */ });
 /* harmony import */ var _api_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/api */ "./resources/js/api/api.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -7200,6 +7198,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
+var FOLLOW = 'FOLLOW';
+var UNFOLLOW = 'UNFOLLOW';
 var initialState = {
   following_users_id: []
 };
@@ -7214,6 +7214,18 @@ var authReducer = function authReducer() {
         following_users_id: _toConsumableArray(action.userData[0]['following_users_id'])
       });
 
+    case FOLLOW:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        following_users_id: [].concat(_toConsumableArray(state.following_users_id), [action.userId])
+      });
+
+    case UNFOLLOW:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        following_users_id: _toConsumableArray(state.following_users_id.filter(function (id) {
+          return id !== action.userId;
+        }))
+      });
+
     default:
       return state;
   }
@@ -7223,6 +7235,18 @@ var setAuthUserData = function setAuthUserData(userData) {
   return {
     type: SET_AUTH_USER_DATA,
     userData: userData
+  };
+};
+var followUser = function followUser(userId) {
+  return {
+    type: FOLLOW,
+    userId: userId
+  };
+};
+var unfollowUser = function unfollowUser(userId) {
+  return {
+    type: UNFOLLOW,
+    userId: userId
   };
 };
 var requestAuthUserData = function requestAuthUserData() {
@@ -7250,6 +7274,90 @@ var requestAuthUserData = function requestAuthUserData() {
 
     return function (_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+};
+var follow = function follow(followUsersIds) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(dispatch) {
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return _api_api__WEBPACK_IMPORTED_MODULE_0__.authAPI.followUnfollow(followUsersIds).then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+                var responseData;
+                return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+                  while (1) {
+                    switch (_context2.prev = _context2.next) {
+                      case 0:
+                        _context2.next = 2;
+                        return _api_api__WEBPACK_IMPORTED_MODULE_0__.authAPI.getAuthUserData();
+
+                      case 2:
+                        responseData = _context2.sent;
+                        dispatch(setAuthUserData(responseData));
+
+                      case 4:
+                      case "end":
+                        return _context2.stop();
+                    }
+                  }
+                }, _callee2);
+              })));
+
+            case 2:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+var unfollow = function unfollow(followUsersIds) {
+  return /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(dispatch) {
+      return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return _api_api__WEBPACK_IMPORTED_MODULE_0__.authAPI.followUnfollow(followUsersIds).then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+                var responseData;
+                return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+                  while (1) {
+                    switch (_context4.prev = _context4.next) {
+                      case 0:
+                        _context4.next = 2;
+                        return _api_api__WEBPACK_IMPORTED_MODULE_0__.authAPI.getAuthUserData();
+
+                      case 2:
+                        responseData = _context4.sent;
+                        dispatch(setAuthUserData(responseData));
+
+                      case 4:
+                      case "end":
+                        return _context4.stop();
+                    }
+                  }
+                }, _callee4);
+              })));
+
+            case 2:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function (_x3) {
+      return _ref4.apply(this, arguments);
     };
   }();
 };
@@ -7410,7 +7518,7 @@ var reducers = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
   usersPage: _reducers_users_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   authUserData: _reducers_auth_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
-var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_2__.compose;
 var createStoreWithMiddleware = composeEnhancers((0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]))(redux__WEBPACK_IMPORTED_MODULE_2__.createStore);
 var store = createStoreWithMiddleware(reducers);
 window.store = store;

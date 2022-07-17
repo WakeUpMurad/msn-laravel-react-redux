@@ -1,8 +1,14 @@
-
 body {
     background: #444;
+    height: 100vh;
 }
 
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .app-wrapper {
     display: grid;
     margin: 0 1rem;
@@ -26,5 +32,64 @@ body {
     box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }
 
+.footer {
+    grid-area: footer;
+    background-color: #BCBABE;
+    border-radius: 1.5rem;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
 
+.card__block {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.2rem;
+    text-align: center;
+    line-height: 2rem;
+    font-family: Verdana, serif;
+    color: #ecf0f1;
+    transform-style: preserve-3d;
+}
+
+.face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.5s ease-in-out;
+    backface-visibility: hidden;
+}
+
+.faceFront {
+
+}
+
+.faceBack {
+    background: #1995AD;
+    font-size: 0.7rem;
+    transform: rotateX(180deg);
+}
+
+.card__block:hover .faceFront {
+    transform: rotateX(-180deg);
+}
+
+.card__block:hover .faceBack {
+    transform: rotateX(0deg);
+}
+
+.typography {
+
+}
 
