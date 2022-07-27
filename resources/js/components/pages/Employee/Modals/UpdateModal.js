@@ -59,7 +59,7 @@ const UpdateModal = ({employeeName, employeeSalary, modalId}) => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <form className='form' action="">
+                        <form className='form' action="resources/js/components/pages/Employee/Modals/UpdateModal">
                             <div className="form-group">
                                 {
                                     !isEditName

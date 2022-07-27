@@ -22,7 +22,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{asset('images/logo_192x192.png')}}" alt="msn" width="40" height="40" class="rounded-circle">
@@ -59,30 +59,57 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                            <a href="{{ url('/home') }}" class="nav-link">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/home.png')}}" alt="img"/>
+                                <span>Home</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
+                            <a class="nav-link" href="{{ url('/profile') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/account.png')}}" alt="img"/>
+                                <span>Profile</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/dialogs') }}">Dialogs</a>
+                            <a class="nav-link" href="{{ url('/dialogs') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/dialog.png')}}" alt="img"/>
+                                <span>Dialogs</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/users') }}">Users</a>
+                            <a class="nav-link" href="{{ url('/users') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/group.png')}}" alt="img"/>
+                                <span>Users</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/news') }}">News</a>
+                            <a class="nav-link" href="{{ url('/news') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/news.png')}}" alt="img"/>
+                                <span>News</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/music') }}">Music</a>
+                            <a class="nav-link" href="{{ url('/music') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/music.png')}}" alt="img"/>
+                                <span>Music</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/settings') }}">Settings</a>
+                            <a class="nav-link" href="{{ url('/employees') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/employees.png')}}" alt="img"/>
+                                <span>Employees</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/settings') }}">
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/settings.png')}}" alt="img"/>
+                                <span>Settings</span>
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{asset('images/logo_192x192.png')}}" alt="logo" width="32" height="32" class="rounded-circle">
-                                {{ Auth::user()->name}} {{ Auth::user()->id}}
+                                <img src="{{asset('images/logo_192x192.png')}}" alt="logo" width="24" height="24" class="bi d-block mb-1 rounded-circle">
+                                {{ Auth::user()->name}}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -105,16 +132,16 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="flex-shrink-0">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-12 mt-5">
                     @yield('content')
                 </div>
             </div>
         </div>
     </main>
-    <footer class="d-flex  py-3 border-top bg-white shadow-sm">
+    <footer class="footer mt-2 d-flex  py-3 border-top bg-white shadow-sm">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -126,22 +153,22 @@
             <ul class="col-md-4 justify-content-end list-unstyled d-flex m-0">
                 <li class="ms-3">
                     <a href="https://www.instagram.com/murad.savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/linksIco/instagram.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('images/instagram.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://web.telegram.org/murad_savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/linksIco/telegram.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('images/telegram.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://www.linkedin.com/in/murad-gakhramanov" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/linksIco/linkedin.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('images/linkedin.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://github.com/WakeUpMurad" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/linksIco/github.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('images/github.png')}}" alt="img"/>
                     </a>
                 </li>
             </ul>

@@ -12,3 +12,6 @@ export const getUsers = createSelector(getUsersSelector, (users) => {
 export const getFollowingUsersId = (state) => {
     return state.authUserData.following_users_id;
 }
+export const getAuthUsersId = (state) => {
+    return state.authUserData.authUserId;
+}
