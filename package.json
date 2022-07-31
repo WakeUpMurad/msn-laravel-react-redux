@@ -11,12 +11,13 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "start": "react-scripts start",
+        "start": "react-scripts start webpack --progress --hide-modules --mode production",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm rum build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "heroku-prebuild": "npm install --dev"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
