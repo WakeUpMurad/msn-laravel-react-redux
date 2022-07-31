@@ -1,5 +1,5 @@
 {
-    "name": "MSN Smart NET",
+    "name": "MSN_Smart_NET",
     "packageManager": "yarn@3.2.1",
     "homepage": "https://wakeupmurad.github.io/msn",
     "private": true,
@@ -11,7 +11,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "start": "react-scripts start webpack --progress --hide-modules --mode production",
+        "start": "webpack --progress --hide-modules --mode production",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",

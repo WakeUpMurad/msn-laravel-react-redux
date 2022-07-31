@@ -12,6 +12,7 @@ Route::get('/', function () {
     return view('layouts/app');
     });
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/get/employee/list', [EmployeeController::class, 'getEmployeeList'])->name('employee.list');
