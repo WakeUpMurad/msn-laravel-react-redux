@@ -4,7 +4,6 @@ import {toast} from "react-toastify";
 export const usersAPI = {
     getUsers() {
         return axios.get('/get/users/list').then(response => {
-            console.log('users')
             return response.data;
         })
     },

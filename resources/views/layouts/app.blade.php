@@ -18,14 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/grid.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/myStyles.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset('images/logo_192x192.png')}}" alt="msn" width="40" height="40" class="rounded-circle">
+            <a class="navbar-brand" href="{{ url('/home') }}">
+                <img src="{{asset('assets/logo_192x192.png')}}" alt="msn" width="40" height="40" class="rounded-circle">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -60,55 +60,55 @@
                     @else
                         <li class="nav-item">
                             <a href="{{ url('/home') }}" class="nav-link">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/home.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/home.png')}}" alt="img"/>
                                 <span>Home</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/profile') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/account.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/account.png')}}" alt="img"/>
                                 <span>Profile</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/dialogs') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/dialog.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/dialog.png')}}" alt="img"/>
                                 <span>Dialogs</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/users') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/group.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/group.png')}}" alt="img"/>
                                 <span>Users</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/news') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/news.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/news.png')}}" alt="img"/>
                                 <span>News</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/music') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/music.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/music.png')}}" alt="img"/>
                                 <span>Music</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/employees') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/employees.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/employees.png')}}" alt="img"/>
                                 <span>Employees</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/settings') }}">
-                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('images/ico/settings.png')}}" alt="img"/>
+                                <img class="bi d-flex justify-content-center  m-0" width="24" height="24" src="{{asset('assets/ico/settings.png')}}" alt="img"/>
                                 <span>Settings</span>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{asset('images/logo_192x192.png')}}" alt="logo" width="24" height="24" class="bi d-block mb-1 rounded-circle">
+                                <img src="{{asset('assets/logo_192x192.png')}}" alt="logo" width="24" height="24" class="bi d-block mb-1 rounded-circle">
                                 {{ Auth::user()->name}}
                             </a>
 
@@ -145,7 +145,7 @@
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <img class="bi rounded-circle" width="30" height="30" src="{{asset('images/logo_192x192.png')}}" alt="msn" ></img>
+                    <img class="bi rounded-circle" width="30" height="30" src="{{asset('assets/logo_192x192.png')}}" alt="msn" ></img>
                 </a>
                 <span class="text-muted">© 2022 Murad Gakhramanov Company, Inc</span>
             </div>
@@ -153,22 +153,22 @@
             <ul class="col-md-4 justify-content-end list-unstyled d-flex m-0">
                 <li class="ms-3">
                     <a href="https://www.instagram.com/murad.savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/instagram.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('assets/instagram.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://web.telegram.org/murad_savage" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/telegram.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('assets/telegram.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://www.linkedin.com/in/murad-gakhramanov" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/linkedin.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('assets/linkedin.png')}}" alt="img"/>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://github.com/WakeUpMurad" class="mb-0 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img width="30" height="30" src="{{asset('images/github.png')}}" alt="img"/>
+                        <img width="30" height="30" src="{{asset('assets/github.png')}}" alt="img"/>
                     </a>
                 </li>
             </ul>

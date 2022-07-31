@@ -42,7 +42,6 @@ export const unfollowUser = (userId) => ({ type: UNFOLLOW, userId })
 
 export const requestAuthUserData = () => async (dispatch) => {
     const responseData = await authAPI.getAuthUserData();
-    console.log(responseData)
     dispatch(setAuthUserData(responseData))
 }
 
